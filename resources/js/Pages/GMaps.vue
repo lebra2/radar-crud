@@ -16,17 +16,13 @@ import Radar from '@/Pages/Radar.vue';
         </template>
 
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
                 <Radar ref="radar" @location-selected="updateLocation" />
 
                 <div
                     v-if="editMode == false"
                     class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2 mt-2"
                 >
-                    <p class="py-2 text-gray-400 font-bold">
-                        NB! Longitude and Latitude are filled out automatically
-                        if clicked on the map. Also can be filled manually
-                    </p>
                     <form
                         @submit.prevent="addPoint"
                         class="flex flex-col gap-2"
@@ -61,22 +57,15 @@ import Radar from '@/Pages/Radar.vue';
                             placeholder="Longitude"
                             class="rounded border-2 border-gray-200"
                         />
-                        <button
-                            type="submit"
-                            class="rounded border-2 border-gray-200 px-4 py-2"
-                        >
-                            Add Point
-                        </button>
+                        <button type="submit" class="text-white bg-blue-700 mt-4 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add marker</button>
                     </form>
+
+
                 </div>
                 <div
                     v-else
                     class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2 mt-2"
                 >
-                    <p class="py-2 text-gray-400 font-bold">
-                        NB! Longitude and Latitude are filled out automatically
-                        if clicked on the map. Also can be filled manually
-                    </p>
                     <form
                         @submit.prevent="updateMarker"
                         class="flex flex-col gap-2"
@@ -111,12 +100,8 @@ import Radar from '@/Pages/Radar.vue';
                             placeholder="Longitude"
                             class="rounded border-2 border-gray-200"
                         />
-                        <button
-                            type="submit"
-                            class="rounded border-2 border-gray-200 px-4 py-2"
-                        >
-                            Edit marker
-                        </button>
+                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit marker</button>
+
                     </form>
                 </div>
                 <div
@@ -133,14 +118,14 @@ import Radar from '@/Pages/Radar.vue';
                     <div class="w-fit flex gap-2">
                         <button
                             @click="editMarker(marker)"
-                            class="w-fit px-4 py-2 border-2 border-gray-200 rounded"
+                            class="w-fit px-4 py-2 border-2 border-gray-200 rounded-lg"
                             type="submit"
                         >
                             Edit
                         </button>
                         <button
                             @click="deletePoint(marker.id)"
-                            class="w-fit px-4 py-2 border-2 border-red-500 rounded"
+                            class="w-fit px-4 bg-red-500 py-2 text-white border-2 rounded-lg"
                             type="submit"
                         >
                             Delete
